@@ -1,0 +1,173 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "zdemopr.zdemoprf",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": []
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/Z_C_OWNER_PRG_CDS/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"Z_C_OWNER_PRG_CDS_VAN"
+					],
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"Z_C_OWNER_PRG_CDS_VAN": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z_C_OWNER_PRG_CDS_VAN',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "localService/Z_C_OWNER_PRG_CDS_VAN.xml"
+				}
+			}
+		},
+		"offline": false,
+		"sourceTemplate": {
+			"id": "ui5template.smartTemplate",
+			"version": "1.38.11"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"resources": {
+			"js": [],
+			"css": []
+		},
+		"dependencies": {
+			"minUI5Version": "1.38.34",
+			"libs": {
+				"sap.ui.core": {
+					"lazy": false
+				},
+				"sap.ui.generic.app": {
+					"lazy": false
+				},
+				"sap.suite.ui.generic.template": {
+					"lazy": false
+				}
+			},
+			"components": {}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ListReport|Z_C_OWNER_PRG": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/ListReport/Z_C_OWNER_PRG/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ObjectPage|Z_C_OWNER_PRG": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/ObjectPage/Z_C_OWNER_PRG/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ObjectPage|Z_C_PAYEE_PRG": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/ObjectPage/Z_C_PAYEE_PRG/i18n.properties"
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"refreshAfterChange": false,
+					"metadataUrlParams": {
+						"sap-value-list": "none"
+					}
+				}
+			}
+		},
+		"extends": {
+			"extensions": {}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.ui.generic.app": {
+		"pages": [
+			{
+				"entitySet": "Z_C_OWNER_PRG",
+				"component": {
+					"name": "sap.suite.ui.generic.template.ListReport",
+					"list": true,
+					"settings": {
+							"dataLoadSettings": {
+                                               "loadDataOnAppLaunch": "always"
+                                               
+                                            }
+					}
+				},
+				"pages": [
+					{
+						"entitySet": "Z_C_OWNER_PRG",
+						"component": {
+							"name": "sap.suite.ui.generic.template.ObjectPage"
+						},
+						"pages": [
+							{
+								"navigationProperty": "to_Payee",
+								"entitySet": "Z_C_PAYEE_PRG",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								}
+							},
+							{
+								"navigationProperty": "to_Earn",
+								"entitySet": "Z_C_EARNING_PRG",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								},
+								"pages":[{
+								"navigationProperty": "to_Pymt",
+								"entitySet": "Z_C_PYMT_PRG",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								}	
+								}]
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"sap.platform.hcp": {
+		"uri": ""
+	}
+}

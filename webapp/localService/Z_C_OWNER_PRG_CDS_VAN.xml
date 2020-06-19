@@ -1,0 +1,202 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/z_c_owner_prg_cds/$metadata"><edmx:Include Namespace="Z_C_OWNER_PRG_CDS" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="z_c_owner_prg_cds_van.v1">
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/DraftUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/DraftEntityType"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/DraftAccessType"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/ProcessingStartDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/DraftIsKeptByUser"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/EnqueueStartDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/DraftIsCreatedByMe"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/DraftIsLastChangedByMe"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/DraftIsProcessedByMe"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/CreatedByUserDescription"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/LastChangedByUserDescription"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType/InProcessByUserDescription"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/DraftUUID"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/HasActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/HasDraftEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/IsActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/DraftEntityCreationDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/DraftEntityLastChangeDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/ParentDraftUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/Preparation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType/Validation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="Earnings Details"/><PropertyValue Property="ID" String="earnFacet"/><PropertyValue Property="Target" AnnotationPath="@UI.Identification"/></Record>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="Payments"/><PropertyValue Property="ID" String="pymtFacet"/><PropertyValue Property="Target" AnnotationPath="to_Pymt/@UI.LineItem"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Earning"/><PropertyValue Property="TypeNamePlural" String="Earnings"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="royalty_type"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="receipt_no"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="fdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="tdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="total_amt"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="currency"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Royalty Type"/><PropertyValue Property="Value" Path="royalty_type"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Receipt No."/><PropertyValue Property="Value" Path="receipt_no"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Fiscal Year"/><PropertyValue Property="Value" Path="fdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Fiscal Month"/><PropertyValue Property="Value" Path="tdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Owners Earning"/><PropertyValue Property="Value" Path="total_amt"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="Value" Path="currency"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/DraftUUID"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/HasActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/HasDraftEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/IsActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/DraftEntityCreationDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/DraftEntityLastChangeDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/Activation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/Edit_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/Preparation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType/Validation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet"><PropertyValue Property="Label" String="Owner Details"/><PropertyValue Property="ID" String="ownerFacet"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet"><PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Owner1"/></Record>
+									<Record Type="UI.ReferenceFacet"><PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Owner2"/></Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="Payee Details"/><PropertyValue Property="ID" String="payeeFacet"/><PropertyValue Property="Target" AnnotationPath="to_Payee/@UI.LineItem"/></Record>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="Earnings Details"/><PropertyValue Property="ID" String="earnFacet"/><PropertyValue Property="Target" AnnotationPath="to_Earn/@UI.LineItem"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Owner1">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Owner ID"/><PropertyValue Property="Value" Path="royalty_owner"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="First Name"/><PropertyValue Property="Value" Path="firstname"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Last Name"/><PropertyValue Property="Value" Path="lastname"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Owner2">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="City"/><PropertyValue Property="Value" Path="city"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="State"/><PropertyValue Property="Value" Path="state"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Country"/><PropertyValue Property="Value" Path="country"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Owner"/><PropertyValue Property="TypeNamePlural" String="Owners"/></Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Owner"/><PropertyValue Property="Value" Path="royalty_owner"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="First Name"/><PropertyValue Property="Value" Path="firstname"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Last Name"/><PropertyValue Property="Value" Path="lastname"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="City"/><PropertyValue Property="Value" Path="city"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Country"/><PropertyValue Property="Value" Path="country"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>royalty_owner</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/DraftUUID"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/HasActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/HasDraftEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/IsActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/DraftEntityCreationDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/DraftEntityLastChangeDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/ParentDraftUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/Preparation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType/Validation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="Payee Details"/><PropertyValue Property="ID" String="payeeFacet"/><PropertyValue Property="Target" AnnotationPath="@UI.Identification"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Payee"/><PropertyValue Property="TypeNamePlural" String="Payees"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="royalty_payee"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="firstname"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="lastname"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="relation_type"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="percent"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Payee"/><PropertyValue Property="Value" Path="royalty_payee"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Relationship Type"/><PropertyValue Property="Value" Path="relation_type"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Share of Payee(%)"/><PropertyValue Property="Value" Path="percent"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/DraftUUID"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/HasActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/HasDraftEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/IsActiveEntity"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/DraftEntityCreationDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/DraftEntityLastChangeDateTime"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/ParentDraftUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/RootDraftUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/Preparation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType/Validation_ac"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="Payments"/><PropertyValue Property="ID" String="pymtFacet"/><PropertyValue Property="Target" AnnotationPath="@UI.Identification"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Receipt No"/><PropertyValue Property="Value" Path="receipt_no"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Payee"/><PropertyValue Property="Value" Path="royalty_payee"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="inv_no"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="inv_item"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="fdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="tdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="inv_amt"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Receipt No"/><PropertyValue Property="Value" Path="receipt_no"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Payee"/><PropertyValue Property="Value" Path="royalty_payee"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice No."/><PropertyValue Property="Value" Path="inv_no"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Item"/><PropertyValue Property="Value" Path="inv_item"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Start Date"/><PropertyValue Property="Value" Path="fdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="End Date"/><PropertyValue Property="Value" Path="tdate"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Amount"/><PropertyValue Property="Value" Path="inv_amt"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

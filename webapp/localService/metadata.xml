@@ -1,0 +1,269 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_C_OWNER_PRG_CDS" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="I_DraftAdministrativeDataType" sap:label="Draft Administration Data" sap:content-version="1">
+				<Key><PropertyRef Name="DraftUUID"/></Key><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Draft (Technical ID)"/><Property Name="DraftEntityType" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Draft Entity ID"/><Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="CreatedByUserDescription"
+					sap:label="Draft Created By"/><Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="LastChangedByUserDescription"
+					sap:label="Draft Last Changed By"/><Property Name="DraftAccessType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Draft Access Type"/><Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft In Process Since"/><Property Name="InProcessByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="InProcessByUserDescription"
+					sap:label="Draft In Process By"/><Property Name="DraftIsKeptByUser" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Is Kept By User"/><Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Locked Since"/><Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Created By Me"/><Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Last Changed By Me"/><Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft In Process By Me"/><Property Name="CreatedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft Created By (Description)"/><Property Name="LastChangedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft Last Changed By (Description)"/><Property Name="InProcessByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft In Process By (Description)"/></EntityType>
+			<EntityType Name="Z_C_EARNING_PRGType" sap:label="earning consumption view- PRG" sap:content-version="1">
+				<Key><PropertyRef Name="royalty_owner"/><PropertyRef Name="receipt_no"/><PropertyRef Name="DraftUUID"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="royalty_owner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"
+					sap:quickinfo="Account Number of Vendor or Creditor"/><Property Name="receipt_no" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document"
+					sap:quickinfo="Purchasing Document Number"/><Property Name="fdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Earning From Date"/><Property Name="tdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Earning To Date"/><Property Name="royalty_type" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Royalty For"/><Property Name="total_amt" Type="Edm.Int32" sap:label="Total Amount"/><Property Name="currency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/><Property Name="paid" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Item Paid"
+					sap:quickinfo="Indicator: Item Paid"/><Property Name="paid_date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/><Property Name="created_by" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by"
+					sap:quickinfo="Name of Person who Created the Object"/><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="ParentDraftUUID" Type="Edm.Guid" sap:label="Key" sap:sortable="false" sap:filterable="false"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has active" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has Draft" sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Is active"
+					sap:sortable="false"/><NavigationProperty Name="DraftAdministrativeData" Relationship="Z_C_OWNER_PRG_CDS.assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F"
+					FromRole="FromRole_assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F" ToRole="ToRole_assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F"/><NavigationProperty Name="SiblingEntity" Relationship="Z_C_OWNER_PRG_CDS.assoc_244059D3CAAF6B9CCD65DD330EE2A340"
+					FromRole="FromRole_assoc_244059D3CAAF6B9CCD65DD330EE2A340" ToRole="ToRole_assoc_244059D3CAAF6B9CCD65DD330EE2A340"/><NavigationProperty Name="to_Pymt" Relationship="Z_C_OWNER_PRG_CDS.assoc_E45DE6EBC452C47C500FB404ACC6779C"
+					FromRole="FromRole_assoc_E45DE6EBC452C47C500FB404ACC6779C" ToRole="ToRole_assoc_E45DE6EBC452C47C500FB404ACC6779C"/><NavigationProperty Name="to_Owner" Relationship="Z_C_OWNER_PRG_CDS.assoc_8CC513270CF090F1C50E4DD7309D26AA"
+					FromRole="ToRole_assoc_8CC513270CF090F1C50E4DD7309D26AA" ToRole="FromRole_assoc_8CC513270CF090F1C50E4DD7309D26AA"/></EntityType>
+			<EntityType Name="Z_C_OWNER_PRGType" sap:label="OWNER Consumption view -PRG" sap:content-version="1">
+				<Key><PropertyRef Name="royalty_owner"/><PropertyRef Name="DraftUUID"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Activation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Edit_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="royalty_owner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"
+					sap:quickinfo="Account Number of Vendor or Creditor"/><Property Name="firstname" Type="Edm.String" MaxLength="30" sap:label="Name 1" sap:quickinfo="Name"/><Property Name="lastname" Type="Edm.String" MaxLength="40" sap:label="Last name"/><Property Name="city" Type="Edm.String" MaxLength="35" sap:label="City"/><Property Name="state" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region"
+					sap:quickinfo="Region (State, Province, County)"/><Property Name="country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="Country Key"/><Property Name="created_on" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/><Property Name="created_by" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by"
+					sap:quickinfo="Name of Person who Created the Object"/><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has active" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has Draft" sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Is active"
+					sap:sortable="false"/><NavigationProperty Name="DraftAdministrativeData" Relationship="Z_C_OWNER_PRG_CDS.assoc_E5A1369C1613E6FD61D6DFE8CAE81349"
+					FromRole="FromRole_assoc_E5A1369C1613E6FD61D6DFE8CAE81349" ToRole="ToRole_assoc_E5A1369C1613E6FD61D6DFE8CAE81349"/><NavigationProperty Name="SiblingEntity" Relationship="Z_C_OWNER_PRG_CDS.assoc_63ECC94C808054F834C778E62DEFD36C"
+					FromRole="FromRole_assoc_63ECC94C808054F834C778E62DEFD36C" ToRole="ToRole_assoc_63ECC94C808054F834C778E62DEFD36C"/><NavigationProperty Name="to_Earn" Relationship="Z_C_OWNER_PRG_CDS.assoc_8CC513270CF090F1C50E4DD7309D26AA"
+					FromRole="FromRole_assoc_8CC513270CF090F1C50E4DD7309D26AA" ToRole="ToRole_assoc_8CC513270CF090F1C50E4DD7309D26AA"/><NavigationProperty Name="to_Payee" Relationship="Z_C_OWNER_PRG_CDS.assoc_B6CAC7AA6339A33DF0782B0BA20421C4"
+					FromRole="FromRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4" ToRole="ToRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4"/></EntityType>
+			<EntityType Name="Z_C_PAYEE_PRGType" sap:label="payee consumption view PRG" sap:content-version="1">
+				<Key><PropertyRef Name="royalty_owner"/><PropertyRef Name="royalty_payee"/><PropertyRef Name="DraftUUID"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="royalty_owner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"
+					sap:quickinfo="Account Number of Vendor or Creditor"/><Property Name="royalty_payee" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"
+					sap:label="Alternative Payee" sap:quickinfo="Account Number of the Alternative Payee" sap:creatable="false" sap:updatable="false"/><Property Name="relation_type" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Relation with Owner"
+					sap:quickinfo="Owner Relationship with the Payee"/><Property Name="firstname" Type="Edm.String" MaxLength="30" sap:label="Name 1" sap:quickinfo="Name"/><Property Name="lastname" Type="Edm.String" MaxLength="40" sap:label="Last name"/><Property Name="percent" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Percent"/><Property Name="created_on" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/><Property Name="created_by" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by"
+					sap:quickinfo="Name of Person who Created the Object"/><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="ParentDraftUUID" Type="Edm.Guid" sap:label="Key" sap:sortable="false" sap:filterable="false"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has active" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has Draft" sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Is active"
+					sap:sortable="false"/><NavigationProperty Name="to_Owner" Relationship="Z_C_OWNER_PRG_CDS.assoc_B6CAC7AA6339A33DF0782B0BA20421C4"
+					FromRole="ToRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4" ToRole="FromRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4"/><NavigationProperty Name="DraftAdministrativeData" Relationship="Z_C_OWNER_PRG_CDS.assoc_394160E7115439E8547E7A1EAD6C3D13"
+					FromRole="FromRole_assoc_394160E7115439E8547E7A1EAD6C3D13" ToRole="ToRole_assoc_394160E7115439E8547E7A1EAD6C3D13"/><NavigationProperty Name="SiblingEntity" Relationship="Z_C_OWNER_PRG_CDS.assoc_C16E668F40B05BB3FDBB7841FD018ABC"
+					FromRole="FromRole_assoc_C16E668F40B05BB3FDBB7841FD018ABC" ToRole="ToRole_assoc_C16E668F40B05BB3FDBB7841FD018ABC"/></EntityType>
+			<EntityType Name="Z_C_PYMT_PRGType" sap:label="PAYMEN CONSUMPTION VIEW PRG" sap:content-version="1">
+				<Key><PropertyRef Name="royalty_owner"/><PropertyRef Name="receipt_no"/><PropertyRef Name="inv_no"/><PropertyRef Name="inv_item"/><PropertyRef Name="DraftUUID"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="royalty_owner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"
+					sap:quickinfo="Account Number of Vendor or Creditor"/><Property Name="receipt_no" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document"
+					sap:quickinfo="Purchasing Document Number"/><Property Name="inv_no" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Billing Document"/><Property Name="inv_item" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Item"
+					sap:quickinfo="Billing Item"/><Property Name="fdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Earning From Date"/><Property Name="tdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Earning To Date"/><Property Name="inv_amt" Type="Edm.Int32" sap:label="Total Amount"/><Property Name="royalty_payee" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Alternative Payee"
+					sap:quickinfo="Account Number of the Alternative Payee"/><Property Name="created_on" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/><Property Name="created_by" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by"
+					sap:quickinfo="Name of Person who Created the Object"/><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="ParentDraftUUID" Type="Edm.Guid" sap:label="Key" sap:sortable="false" sap:filterable="false"/><Property Name="RootDraftUUID" Type="Edm.Guid" sap:label="Key" sap:sortable="false" sap:filterable="false"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has active" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has Draft" sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Is active"
+					sap:sortable="false"/><NavigationProperty Name="to_Earn" Relationship="Z_C_OWNER_PRG_CDS.assoc_E45DE6EBC452C47C500FB404ACC6779C"
+					FromRole="ToRole_assoc_E45DE6EBC452C47C500FB404ACC6779C" ToRole="FromRole_assoc_E45DE6EBC452C47C500FB404ACC6779C"/><NavigationProperty Name="DraftAdministrativeData" Relationship="Z_C_OWNER_PRG_CDS.assoc_0B6BB1200F66AA6A4037C31828682811"
+					FromRole="FromRole_assoc_0B6BB1200F66AA6A4037C31828682811" ToRole="ToRole_assoc_0B6BB1200F66AA6A4037C31828682811"/><NavigationProperty Name="SiblingEntity" Relationship="Z_C_OWNER_PRG_CDS.assoc_979C03A31AB239FA9EF921B7C228B8CE"
+					FromRole="FromRole_assoc_979C03A31AB239FA9EF921B7C228B8CE" ToRole="ToRole_assoc_979C03A31AB239FA9EF921B7C228B8CE"/><NavigationProperty Name="to_Owner" Relationship="Z_C_OWNER_PRG_CDS.assoc_7818B806BA460ECD1BFC63D0EAFF01C5"
+					FromRole="FromRole_assoc_7818B806BA460ECD1BFC63D0EAFF01C5" ToRole="ToRole_assoc_7818B806BA460ECD1BFC63D0EAFF01C5"/></EntityType>
+			<ComplexType Name="ValidationFunctionResult"><Property Name="IsValid" Type="Edm.Boolean" sap:label="Is valid"/></ComplexType>
+			<Association Name="assoc_0B6BB1200F66AA6A4037C31828682811" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" Multiplicity="1" Role="FromRole_assoc_0B6BB1200F66AA6A4037C31828682811"/><End Type="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_0B6BB1200F66AA6A4037C31828682811"/></Association>
+			<Association Name="assoc_979C03A31AB239FA9EF921B7C228B8CE" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" Multiplicity="1" Role="FromRole_assoc_979C03A31AB239FA9EF921B7C228B8CE"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" Multiplicity="0..1" Role="ToRole_assoc_979C03A31AB239FA9EF921B7C228B8CE"/></Association>
+			<Association Name="assoc_7818B806BA460ECD1BFC63D0EAFF01C5" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" Multiplicity="1" Role="FromRole_assoc_7818B806BA460ECD1BFC63D0EAFF01C5"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" Multiplicity="1" Role="ToRole_assoc_7818B806BA460ECD1BFC63D0EAFF01C5"/></Association>
+			<Association Name="assoc_244059D3CAAF6B9CCD65DD330EE2A340" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" Multiplicity="1" Role="FromRole_assoc_244059D3CAAF6B9CCD65DD330EE2A340"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" Multiplicity="0..1" Role="ToRole_assoc_244059D3CAAF6B9CCD65DD330EE2A340"/></Association>
+			<Association Name="assoc_E45DE6EBC452C47C500FB404ACC6779C" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" Multiplicity="1" Role="FromRole_assoc_E45DE6EBC452C47C500FB404ACC6779C"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" Multiplicity="*" Role="ToRole_assoc_E45DE6EBC452C47C500FB404ACC6779C"/></Association>
+			<Association Name="assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" Multiplicity="1" Role="FromRole_assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F"/><End Type="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F"/></Association>
+			<Association Name="assoc_E5A1369C1613E6FD61D6DFE8CAE81349" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" Multiplicity="1" Role="FromRole_assoc_E5A1369C1613E6FD61D6DFE8CAE81349"/><End Type="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_E5A1369C1613E6FD61D6DFE8CAE81349"/></Association>
+			<Association Name="assoc_63ECC94C808054F834C778E62DEFD36C" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" Multiplicity="1" Role="FromRole_assoc_63ECC94C808054F834C778E62DEFD36C"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" Multiplicity="0..1" Role="ToRole_assoc_63ECC94C808054F834C778E62DEFD36C"/></Association>
+			<Association Name="assoc_8CC513270CF090F1C50E4DD7309D26AA" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" Multiplicity="1" Role="FromRole_assoc_8CC513270CF090F1C50E4DD7309D26AA"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" Multiplicity="*" Role="ToRole_assoc_8CC513270CF090F1C50E4DD7309D26AA"/></Association>
+			<Association Name="assoc_B6CAC7AA6339A33DF0782B0BA20421C4" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" Multiplicity="1" Role="FromRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" Multiplicity="*" Role="ToRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4"/></Association>
+			<Association Name="assoc_394160E7115439E8547E7A1EAD6C3D13" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" Multiplicity="1" Role="FromRole_assoc_394160E7115439E8547E7A1EAD6C3D13"/><End Type="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_394160E7115439E8547E7A1EAD6C3D13"/></Association>
+			<Association Name="assoc_C16E668F40B05BB3FDBB7841FD018ABC" sap:content-version="1"><End Type="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" Multiplicity="1" Role="FromRole_assoc_C16E668F40B05BB3FDBB7841FD018ABC"/><End Type="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" Multiplicity="0..1" Role="ToRole_assoc_C16E668F40B05BB3FDBB7841FD018ABC"/></Association>
+			<EntityContainer Name="Z_C_OWNER_PRG_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="I_DraftAdministrativeData" EntityType="Z_C_OWNER_PRG_CDS.I_DraftAdministrativeDataType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Z_C_EARNING_PRG" EntityType="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" sap:content-version="1"/><EntitySet Name="Z_C_OWNER_PRG" EntityType="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" sap:content-version="1"/><EntitySet Name="Z_C_PAYEE_PRG" EntityType="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" sap:content-version="1"/><EntitySet Name="Z_C_PYMT_PRG" EntityType="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" sap:content-version="1"/>
+				<AssociationSet Name="assoc_394160E7115439E8547E7A1EAD6C3D13" Association="Z_C_OWNER_PRG_CDS.assoc_394160E7115439E8547E7A1EAD6C3D13"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_PAYEE_PRG" Role="FromRole_assoc_394160E7115439E8547E7A1EAD6C3D13"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_394160E7115439E8547E7A1EAD6C3D13"/></AssociationSet>
+				<AssociationSet Name="assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F" Association="Z_C_OWNER_PRG_CDS.assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_EARNING_PRG" Role="FromRole_assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_DBAA03BB0A86B22E0B7CC60D057B8F7F"/></AssociationSet>
+				<AssociationSet Name="assoc_E45DE6EBC452C47C500FB404ACC6779C" Association="Z_C_OWNER_PRG_CDS.assoc_E45DE6EBC452C47C500FB404ACC6779C"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_EARNING_PRG" Role="FromRole_assoc_E45DE6EBC452C47C500FB404ACC6779C"/><End EntitySet="Z_C_PYMT_PRG" Role="ToRole_assoc_E45DE6EBC452C47C500FB404ACC6779C"/></AssociationSet>
+				<AssociationSet Name="assoc_E5A1369C1613E6FD61D6DFE8CAE81349" Association="Z_C_OWNER_PRG_CDS.assoc_E5A1369C1613E6FD61D6DFE8CAE81349"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_OWNER_PRG" Role="FromRole_assoc_E5A1369C1613E6FD61D6DFE8CAE81349"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_E5A1369C1613E6FD61D6DFE8CAE81349"/></AssociationSet>
+				<AssociationSet Name="assoc_7818B806BA460ECD1BFC63D0EAFF01C5" Association="Z_C_OWNER_PRG_CDS.assoc_7818B806BA460ECD1BFC63D0EAFF01C5"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_PYMT_PRG" Role="FromRole_assoc_7818B806BA460ECD1BFC63D0EAFF01C5"/><End EntitySet="Z_C_OWNER_PRG" Role="ToRole_assoc_7818B806BA460ECD1BFC63D0EAFF01C5"/></AssociationSet>
+				<AssociationSet Name="assoc_244059D3CAAF6B9CCD65DD330EE2A340" Association="Z_C_OWNER_PRG_CDS.assoc_244059D3CAAF6B9CCD65DD330EE2A340"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_EARNING_PRG" Role="FromRole_assoc_244059D3CAAF6B9CCD65DD330EE2A340"/><End EntitySet="Z_C_EARNING_PRG" Role="ToRole_assoc_244059D3CAAF6B9CCD65DD330EE2A340"/></AssociationSet>
+				<AssociationSet Name="assoc_B6CAC7AA6339A33DF0782B0BA20421C4" Association="Z_C_OWNER_PRG_CDS.assoc_B6CAC7AA6339A33DF0782B0BA20421C4"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_OWNER_PRG" Role="FromRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4"/><End EntitySet="Z_C_PAYEE_PRG" Role="ToRole_assoc_B6CAC7AA6339A33DF0782B0BA20421C4"/></AssociationSet>
+				<AssociationSet Name="assoc_C16E668F40B05BB3FDBB7841FD018ABC" Association="Z_C_OWNER_PRG_CDS.assoc_C16E668F40B05BB3FDBB7841FD018ABC"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_PAYEE_PRG" Role="FromRole_assoc_C16E668F40B05BB3FDBB7841FD018ABC"/><End EntitySet="Z_C_PAYEE_PRG" Role="ToRole_assoc_C16E668F40B05BB3FDBB7841FD018ABC"/></AssociationSet>
+				<AssociationSet Name="assoc_8CC513270CF090F1C50E4DD7309D26AA" Association="Z_C_OWNER_PRG_CDS.assoc_8CC513270CF090F1C50E4DD7309D26AA"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_OWNER_PRG" Role="FromRole_assoc_8CC513270CF090F1C50E4DD7309D26AA"/><End EntitySet="Z_C_EARNING_PRG" Role="ToRole_assoc_8CC513270CF090F1C50E4DD7309D26AA"/></AssociationSet>
+				<AssociationSet Name="assoc_0B6BB1200F66AA6A4037C31828682811" Association="Z_C_OWNER_PRG_CDS.assoc_0B6BB1200F66AA6A4037C31828682811"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_PYMT_PRG" Role="FromRole_assoc_0B6BB1200F66AA6A4037C31828682811"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_0B6BB1200F66AA6A4037C31828682811"/></AssociationSet>
+				<AssociationSet Name="assoc_63ECC94C808054F834C778E62DEFD36C" Association="Z_C_OWNER_PRG_CDS.assoc_63ECC94C808054F834C778E62DEFD36C"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_OWNER_PRG" Role="FromRole_assoc_63ECC94C808054F834C778E62DEFD36C"/><End EntitySet="Z_C_OWNER_PRG" Role="ToRole_assoc_63ECC94C808054F834C778E62DEFD36C"/></AssociationSet>
+				<AssociationSet Name="assoc_979C03A31AB239FA9EF921B7C228B8CE" Association="Z_C_OWNER_PRG_CDS.assoc_979C03A31AB239FA9EF921B7C228B8CE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_PYMT_PRG" Role="FromRole_assoc_979C03A31AB239FA9EF921B7C228B8CE"/><End EntitySet="Z_C_PYMT_PRG" Role="ToRole_assoc_979C03A31AB239FA9EF921B7C228B8CE"/></AssociationSet>
+				<FunctionImport Name="Z_C_EARNING_PRGPreparation" ReturnType="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" EntitySet="Z_C_EARNING_PRG"
+					m:HttpMethod="POST" sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" sap:applicable-path="Preparation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="receipt_no" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_EARNING_PRGValidation" ReturnType="Z_C_OWNER_PRG_CDS.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_EARNING_PRGType" sap:applicable-path="Validation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="receipt_no" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_OWNER_PRGActivation" ReturnType="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" EntitySet="Z_C_OWNER_PRG"
+					m:HttpMethod="POST" sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" sap:applicable-path="Activation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/></FunctionImport>
+				<FunctionImport Name="Z_C_OWNER_PRGEdit" ReturnType="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" EntitySet="Z_C_OWNER_PRG" m:HttpMethod="POST"
+					sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" sap:applicable-path="Edit_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_OWNER_PRGPreparation" ReturnType="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" EntitySet="Z_C_OWNER_PRG"
+					m:HttpMethod="POST" sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" sap:applicable-path="Preparation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_OWNER_PRGValidation" ReturnType="Z_C_OWNER_PRG_CDS.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRGType" sap:applicable-path="Validation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_PAYEE_PRGPreparation" ReturnType="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" EntitySet="Z_C_PAYEE_PRG"
+					m:HttpMethod="POST" sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" sap:applicable-path="Preparation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="royalty_payee" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_PAYEE_PRGValidation" ReturnType="Z_C_OWNER_PRG_CDS.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_PAYEE_PRGType" sap:applicable-path="Validation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="royalty_payee" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_PYMT_PRGPreparation" ReturnType="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" EntitySet="Z_C_PYMT_PRG" m:HttpMethod="POST"
+					sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" sap:applicable-path="Preparation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="receipt_no" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="inv_no" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="inv_item" Type="Edm.String" Mode="In" MaxLength="6"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="Z_C_PYMT_PRGValidation" ReturnType="Z_C_OWNER_PRG_CDS.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="Z_C_OWNER_PRG_CDS.Z_C_PYMT_PRGType" sap:applicable-path="Validation_ac"><Parameter Name="royalty_owner" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="receipt_no" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="inv_no" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="inv_item" Type="Edm.String" Mode="In" MaxLength="6"/><Parameter Name="DraftUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRG">
+				<Annotation Term="Common.DraftRoot">
+					<Record><PropertyValue Property="ActivationAction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRGActivation"/><PropertyValue Property="EditAction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRGEdit"/><PropertyValue Property="PreparationAction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRGPreparation"/><PropertyValue Property="ValidationFunction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRGValidation"/></Record>
+				</Annotation>
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>Activation_ac</PropertyPath>
+								<PropertyPath>Edit_ac</PropertyPath>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>Activation_ac</PropertyPath>
+								<PropertyPath>Edit_ac</PropertyPath>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+								<PropertyPath>HasActiveEntity</PropertyPath>
+								<PropertyPath>HasDraftEntity</PropertyPath>
+								<PropertyPath>IsActiveEntity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_PYMT_PRG">
+				<Annotation Term="Common.DraftNode">
+					<Record><PropertyValue Property="PreparationAction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_PYMT_PRGPreparation"/><PropertyValue Property="ValidationFunction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_PYMT_PRGValidation"/></Record>
+				</Annotation>
+				<Annotation Term="Common.DraftActivationVia">
+					<Collection>
+						<String>Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRG</String>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+								<PropertyPath>ParentDraftUUID</PropertyPath>
+								<PropertyPath>RootDraftUUID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+								<PropertyPath>ParentDraftUUID</PropertyPath>
+								<PropertyPath>RootDraftUUID</PropertyPath>
+								<PropertyPath>HasActiveEntity</PropertyPath>
+								<PropertyPath>HasDraftEntity</PropertyPath>
+								<PropertyPath>IsActiveEntity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_EARNING_PRG">
+				<Annotation Term="Common.DraftNode">
+					<Record><PropertyValue Property="PreparationAction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_EARNING_PRGPreparation"/><PropertyValue Property="ValidationFunction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_EARNING_PRGValidation"/></Record>
+				</Annotation>
+				<Annotation Term="Common.DraftActivationVia">
+					<Collection>
+						<String>Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRG</String>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+								<PropertyPath>ParentDraftUUID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+								<PropertyPath>ParentDraftUUID</PropertyPath>
+								<PropertyPath>HasActiveEntity</PropertyPath>
+								<PropertyPath>HasDraftEntity</PropertyPath>
+								<PropertyPath>IsActiveEntity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_PAYEE_PRG">
+				<Annotation Term="Common.DraftNode">
+					<Record><PropertyValue Property="PreparationAction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_PAYEE_PRGPreparation"/><PropertyValue Property="ValidationFunction" String="Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_PAYEE_PRGValidation"/></Record>
+				</Annotation>
+				<Annotation Term="Common.DraftActivationVia">
+					<Collection>
+						<String>Z_C_OWNER_PRG_CDS.Z_C_OWNER_PRG_CDS_Entities/Z_C_OWNER_PRG</String>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+								<PropertyPath>ParentDraftUUID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>Preparation_ac</PropertyPath>
+								<PropertyPath>Validation_ac</PropertyPath>
+								<PropertyPath>ParentDraftUUID</PropertyPath>
+								<PropertyPath>HasActiveEntity</PropertyPath>
+								<PropertyPath>HasDraftEntity</PropertyPath>
+								<PropertyPath>IsActiveEntity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/Z_C_OWNER_PRG_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/Z_C_OWNER_PRG_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
